@@ -18,7 +18,20 @@
         <label for="email">email:</label><br/>
         <input type="text" name="email" placeholder=" your email">
     </p>
-    <p>
+
+    <select name="group">
+        <option value="" disabled selected>Choose option</option>
+        <option value="Giertz">Giertz</option>
+        <option value="Lamarr">Lamarr</option>
+    </select>
+
+    <select name="coach">
+        <option value="" disabled selected>Choose option</option>
+        <option value="Sicco">Sicco</option>
+        <option value="Koen">Koen</option>
+    </select><br><br>
+   <!--
+   <p>
         <label for="group">group:</label><br/>
         <input type="text" name="group" placeholder="Which group do you belong too?">
     </p>
@@ -26,6 +39,7 @@
         <label for="coach">coach:</label><br/>
         <input type="text" name="coach" placeholder="who is your coach?">
     </p>
+    -->
     <input type="submit" name="submit" value="submit">
 </form>
 
