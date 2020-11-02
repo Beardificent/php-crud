@@ -8,7 +8,7 @@ class StudentOverviewControl
         //new connection
         $connection = new Connection();
         //get function from connection.php.
-        $students = $connection->getUsers();
+        $students = $connection->getStudentOverview();
         $path = 'studentOverview.php';
         require $path;
     }

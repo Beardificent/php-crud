@@ -1,7 +1,7 @@
 <?php
 
 
-class StudentControl
+class StudentAddFormControl
 {
     public function render ()
     {
