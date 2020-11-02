@@ -3,7 +3,7 @@
 class Connection
 {
     private PDO $pdo;
-    private PDOStatement $handle;
+    private PDOStatement $result;
 
     public function __construct()
     {
@@ -15,7 +15,7 @@ class Connection
         $dbhost = "localhost";
         $dbuser = "becode";
         $dbpass = "becode123";
-        $db = "becode";
+        $db = "php_crud";
 
         $driverOptions = [
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
@@ -25,4 +25,20 @@ class Connection
 
         return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
     }
+
+
+    public function addStudent($name, $email, $class, $teacher)
+    {
+        //if thingamhjies become blue add backticks.
+            $pdo = $this->openConnection();
+            $sql ="INSERT INTO Students (`name`, email, assigned_teacher, `group`) VALUES (:name, :email, :teacher, :group)";
+            $result = $pdo->prepare($sql);
+            $result->bindValue(':name', $name);
+            $result->bindValue(':email', $email);
+            $result->bindValue(':teacher', $teacher);
+            $result->bindValue(':group', $class);
+            $result->execute();
+
+    }
+
 }

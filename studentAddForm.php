@@ -1,8 +1,3 @@
-
-<?php
-require_once 'StudentControl.php';
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,24 +9,24 @@ require_once 'StudentControl.php';
 </head>
 <body>
 
-<form action="StudentControl.php" method="post">
+<form action="" method="post">
     <p>
         <label for="name">name:</label><br/>
-        <input type="text" name="name" value="enter your name">
+        <input type="text" name="name" placeholder="enter your name">
     </p>
     <p>
         <label for="email">email:</label><br/>
-        <input type="text" name="email" value="enter your email">
+        <input type="text" name="email" placeholder=" your email">
     </p>
     <p>
         <label for="group">group:</label><br/>
-        <input type="text" name="group" value="Which group do you belong too?">
+        <input type="text" name="group" placeholder="Which group do you belong too?">
     </p>
     <p>
         <label for="coach">coach:</label><br/>
-        <input type="text" name="coach" value="who is your coach?">
+        <input type="text" name="coach" placeholder="who is your coach?">
     </p>
-    <input type="submit" value="Submit">
+    <input type="submit" name="submit" value="submit">
 </form>
 
 

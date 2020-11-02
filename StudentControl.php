@@ -3,17 +3,27 @@
 
 class StudentControl
 {
-
-
-    public function addStudent()
+    public function render ()
     {
-        if (isset($_POST['submit'])){
+        $path = 'studentAddForm.php';
+        $this->addStudentControl();
+        require $path;
+    }
+
+    public function addStudentControl ()
+    {
+        if (isset($_POST['submit']))
+        {
+
             $name = $_POST['name'];
             $email = $_POST['email'];
             $class = $_POST['group'];
             $teacher = $_POST['coach'];
 
-            $pdo->prepare("INSERT INTO student (name, email, class, teacher) VALUES ($name', '$email', '$class', '$teacher')")
+            $connection = new Connection();
+            $connection->addStudent($name, $email, $class, $teacher);
         }
     }
+
+
 }
