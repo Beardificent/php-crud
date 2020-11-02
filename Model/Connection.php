@@ -25,4 +25,5 @@ class Connection
 
         return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
     }
+    
 }
