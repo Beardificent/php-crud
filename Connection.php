@@ -59,18 +59,18 @@ class Connection
         $result = $pdo->prepare($sql);
         $result->bindValue(':id', $id);
         $result->execute();
-        $student = $result->fetch();
+        return $result->fetch();
 
-        return $student;
 
     }
 
-    public function deleteStudent()
+    //Doesnt work.
+    public function deleteStudent($id)
     {
         $pdo = $this->openConnection();
         $sql = "DELETE FROM Students WHERE id = :id";
         $result = $pdo->prepare($sql);
-        $result->bindParam(':id', $id);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
         $result->execute();
 
     }

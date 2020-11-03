@@ -13,3 +13,4 @@
     echo '<input type="submit" name="delete_student" value="delete student">';
 
 }
+
