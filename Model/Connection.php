@@ -120,5 +120,8 @@ class Connection
             array_push($array, $newGroup->getGroupObj());
         } $this->overview->setSummary($array);
     }
+    public function getOverview(){
+        return $this->overview;
+    }
 
 }
