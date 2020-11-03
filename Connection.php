@@ -70,7 +70,9 @@ class Connection
         $pdo = $this->openConnection();
         $sql = "DELETE FROM Students WHERE id = ?";
         $result = $pdo->prepare($sql);
+        //no placeholder so no binding needed
        // $result->bindParam(':id', $id, PDO::PARAM_INT);
+        //execute required an array so we added the array thingamajig
         $result->execute(array($id));
 
     }

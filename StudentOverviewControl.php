@@ -14,7 +14,7 @@ class StudentOverviewControl
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if($_POST['delete_student']){
                 echo "the student has been deleted";
-                //Need to get the id again, can I link this to the button value?
+                //I was an idiot for forgetting $_POST['name of button']
                 $id = $_POST['delete_student'];
                 $connection = new Connection();
                 $connection->deleteStudent($id);
