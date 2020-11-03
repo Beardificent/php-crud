@@ -15,25 +15,7 @@ class StudentProfileControl
         require $path;
 
 
-        $this->deleteRow();
     }
 
-    //Function doesn't work.
-    public function deleteRow()
-    {
-        if ($_REQUEST($_POST['delete_student'])) {
-            $id = 0;
 
-            if (!empty($_GET['id'])) {
-                $id = $_REQUEST['id'];
-            }
-
-            if (!empty($_POST)) {
-                // keep track post values
-                $obj = new Connection();
-                $obj->deleteStudent($id);
-            }
-        }
-
-    }
 }
