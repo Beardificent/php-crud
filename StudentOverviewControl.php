@@ -14,21 +14,11 @@ class StudentOverviewControl
         $this->deleteRow();
     }
 
-    //Function doesn't work.
+    //Function doesn't work. this where i'd ask $GET to see if send = del in url to delete but it's not picking up the required page after.
     public function deleteRow()
     {
-        if (isset($_POST['delete_student'])) {
-            $id = 0;
-
-            if (!empty($_GET['id'])) {
-                $id = $_REQUEST['id'];
-            }
-
-            if (!empty($_POST)) {
-                // keep track post values
-                $obj = new Connection();
-                $obj->deleteStudent($id);
-            }
+        if ($_GET['send'] === 'del') {
+         echo "student has been deleted";
         }
 
     }

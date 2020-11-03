@@ -68,10 +68,10 @@ class Connection
     public function deleteStudent($id)
     {
         $pdo = $this->openConnection();
-        $sql = "DELETE FROM Students WHERE id = :id";
+        $sql = "DELETE FROM Students WHERE id = ?";
         $result = $pdo->prepare($sql);
         $result->bindParam(':id', $id, PDO::PARAM_INT);
-        $result->execute();
+        $result->execute($id);
 
     }
 
