@@ -70,8 +70,8 @@ class Connection
         $pdo = $this->openConnection();
         $sql = "DELETE FROM Students WHERE id = ?";
         $result = $pdo->prepare($sql);
-        $result->bindParam(':id', $id, PDO::PARAM_INT);
-        $result->execute($id);
+       // $result->bindParam(':id', $id, PDO::PARAM_INT);
+        $result->execute(array($id));
 
     }
 
