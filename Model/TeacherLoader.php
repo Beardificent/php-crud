@@ -3,20 +3,20 @@
 
 class TeacherLoader extends DataBaseConnection
 {
-    private array $Teacher;
+    private array $Teachers;
 
     /**
      * TeacherLoader constructor.
-     * @param array $Teacher
+     * @param array $Teachers
      */
+    //This function is to select from the teachers
+
     public function __construct()
     {
         $handle = $this->Connection()->prepare("SELECT * FROM Teacher");
         $handle->execute();
-        $this->Teacher = $handle->fetchAll();
-       // return $Teacher;
+        $this->Teachers = $handle->fetchAll();
 
-        // $this->Teacher = $Teacher;
     }
 
     /**
@@ -24,7 +24,7 @@ class TeacherLoader extends DataBaseConnection
      */
     public function getTeacher(): array
     {
-        return $this->Teacher;
+        return $this->Teachers;
     }
 
     /**

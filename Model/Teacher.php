@@ -3,10 +3,12 @@
 
 class Teacher extends DataBaseConnection
 {
-    private $name;
-    private $email;
-    private $list_of_students;
-    private $class_number;
+
+    private string $name;
+    private string $email;
+    private int $id;
+    private string $list_of_students;
+    private int $class_number;
 
 
     /**
@@ -16,13 +18,33 @@ class Teacher extends DataBaseConnection
      * @param $list_of_students
      * @param $class_number
      */
-    public function __construct($name, $email, $list_of_students, $class_number)
+    public function __construct($id, $name, $email, $list_of_students, $class_number)
     {
+
+        $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->list_of_students = $list_of_students;
         $this->class_number = $class_number;
     }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+
 
     /**
      * @return mixed
@@ -31,6 +53,11 @@ class Teacher extends DataBaseConnection
     {
         return $this->name;
     }
+
+    /**
+     * @return mixed
+     */
+
 
     /**
      * @param mixed $name
@@ -75,7 +102,7 @@ class Teacher extends DataBaseConnection
     /**
      * @return mixed
      */
-    public function getClassNumber()
+    public function getClassNumber(): int
     {
         return $this->class_number;
     }
@@ -88,9 +115,27 @@ class Teacher extends DataBaseConnection
         $this->class_number = $class_number;
     }
 
+// this function is to update to the teachers in the database
+
+    public function update()
+    {
+        $handle = $this->connection()->prepare('UPDATE Teacher SET name = :name, WHERE email = : email');
+        $handle->bindValue('name', $this->getName());
+        $handle->bindValue('email', $this->getEmail());
+        $handle->execute();
+
+    }
 
 
+    // this function is to delete a teacher from the database
 
+    public function delete()
+    {
+        $handle = $this->connection()->prepare('DELETE FROM teacher WHERE name = : name');
+        $handle->bindValue('id', $this->getName());
+        $handle->execute();
+
+    }
 
 
 }

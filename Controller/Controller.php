@@ -3,7 +3,7 @@
 
 class Controller
 {
-    public function addTeacher()
+    public function addTeacher() //this function was created to add teacher to the database
     {
         if (!empty($_POST['name']) && !empty($_POST['email'])) {
             $name = $_POST['name'];
@@ -13,6 +13,7 @@ class Controller
             $connection->createTeacher($name, $email);
 
         }
+
     }
 
     public function Render()

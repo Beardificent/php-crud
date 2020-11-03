@@ -17,6 +17,7 @@ function whatIsHappening()
     //var_dump($_SESSION);
 
 }
+
 whatIsHappening();
 
 ?>
@@ -50,14 +51,25 @@ whatIsHappening();
             </div>
 
             <br>
-                <div></div>
-            </div>
-
+            <div></div>
         </div>
 
         <button type="submit" name="submit"> Submit!</button>
     </form>
 </fieldset>
+
+
+<?php
+if (!empty($Teachers)) {
+foreach ($Teachers
+
+as $Teacher): ?>
+<tr class="table-row">
+    <td><?php echo $Teacher["first_name"]; ?></td>
+    <td><?php echo $Teacher["email"]; ?></td>
+    <?php endforeach;
+    }
+    ?>
 
 </body>
 </html>
