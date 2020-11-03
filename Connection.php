@@ -26,7 +26,7 @@ class Connection
         return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
     }
 
-
+//Function to ADD STUDENTS
     public function addStudent($name, $email, $class, $teacher)
     {
         //if thingamhjies become blue add backticks.
@@ -38,6 +38,40 @@ class Connection
             $result->bindValue(':teacher', $teacher);
             $result->bindValue(':group', $class);
             $result->execute();
+
+    }
+
+    //FUNCTION TO GET ALL STUDENTS FROM DB
+    public function getStudentOverview()
+    {
+        $pdo = $this->openConnection();
+        $sql = "SELECT * FROM Students";
+        $result = $pdo->query($sql);
+        return $result->fetchAll();
+
+    }
+
+    //Function to GET to the PROFILE
+    public function getStudentProfile($id)
+    {
+        $pdo = $this->openConnection();
+        $sql = "SELECT * FROM Students WHERE id = :id";
+        $result = $pdo->prepare($sql);
+        $result->bindValue(':id', $id);
+        $result->execute();
+        $student = $result->fetch();
+
+        return $student;
+
+    }
+
+    public function deleteStudent()
+    {
+        $pdo = $this->openConnection();
+        $sql = "DELETE FROM Students WHERE id = :id";
+        $result = $pdo->prepare($sql);
+        $result->bindParam(':id', $id);
+        $result->execute();
 
     }
 

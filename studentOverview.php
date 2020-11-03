@@ -8,5 +8,8 @@
                 <h4 class="card-title"><a href="/?user=' . $student['id'] . '">Profile</a></h4>
            <p class="card-text">' . $student['email'] . '</p>
             </div>
-            </div>';
+            </div><br/>';
+    echo '<input type="submit" name="edit_student" value="edit student">';
+    echo '<input type="submit" name="delete_student" value="delete student">';
+
 }
