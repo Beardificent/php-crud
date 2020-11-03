@@ -1,15 +1,7 @@
-<?php
-foreach($groups as $group){
-    echo '<div class="card">
-            <div class="card-header">
-                '. $group['name'] . '
-    </div>
-            <div class="card-body">
-                <h4 class="card-title"><a href="/?Class=' . $group['id'] . '">Class</a></h4>
-           <p class="card-text">' . $group['location'] . '</p>
-            </div>
-            </div><br/>';
-    echo '<input type="submit" name="edit_class" value="edit class">';
-    echo '<input type="submit" name="delete_class" value="delete class">';
+<table>
 
-}
+    <?php foreach ($table->getAllStudents() AS $student){
+        echo "<tr><th>".$student->getFirstName()."</th><th>".$student->getLastName()."</th><th>".$student->getEmail()."</th><th><form method='get'><button type='submit' value='".$student->getId()."' name='user'>Profile</form></th>";
+    } ?>
+
+</table>

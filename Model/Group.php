@@ -2,14 +2,19 @@
 
 Class Group
 {
+    private int $id;
     private string $name;
     private string $location;
-    private int $teacherId;
-    private array $students;
 
-    public function __construct()
+    public function __construct(int $id, string $name, string $location)
     {
+        $this->id = $id;
+        $this->name = $name;
+        $this->location = $location;
+    }
 
+    public function getGroupObj(){
+        return $this;
     }
 
 

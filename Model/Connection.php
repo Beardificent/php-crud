@@ -4,6 +4,7 @@ class Connection
 {
     private PDO $pdo;
     private PDOStatement $handle;
+    private Overview $overview;
 
     public function __construct()
     {
@@ -97,11 +98,27 @@ class Connection
 
     public function getStudentsInGroup($id){
         $pdo = $this->openConnection();
-        $sql ="SELECT * FROM Students  WHERE class_id = :id";//class_id is a placeholder for now
+        $sql ="SELECT * FROM Students  WHERE id = :id";//class_id is a placeholder for now
         $result = $pdo->prepare($sql);
         $result->bindValue(':id', $id);
         $result->execute();
-        return $result->fetchAll();
+        $result->fetchAll();
+
+
+    }
+    public function getGroups(){
+
+        $pdo = $this->openConnection();
+        $sql ="SELECT * FROM Class";
+        $result = $pdo->prepare($sql);
+        $result->execute();
+        $toOverview = $result->fetchAll();
+        $this->overview = new Overview();
+        $array = [];
+        foreach ($toOverview as $group){
+            $newGroup = new Group($group['id'], $group['name'], $group['Location']);
+            array_push($array, $newGroup->getGroupObj());
+        } $this->overview->setSummary($array);
     }
 
 }
