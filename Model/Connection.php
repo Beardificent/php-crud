@@ -3,8 +3,12 @@
 class Connection
 {
     private PDO $pdo;
+
     private PDOStatement $handle;
     private Overview $overview;
+
+    private PDOStatement $result;
+
 
     public function __construct()
     {
@@ -16,7 +20,10 @@ class Connection
         $dbhost = "localhost";
         $dbuser = "becode";
         $dbpass = "becode123";
-        $db = "becode";
+
+
+        $db = "php_crud";
+
 
         $driverOptions = [
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
@@ -26,18 +33,21 @@ class Connection
 
         return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
     }
-    //Function to ADD STUDENTS
+
+
+//Function to ADD STUDENTS
     public function addStudent($name, $email, $class, $teacher)
     {
         //if thingamhjies become blue add backticks.
-        $pdo = $this->openConnection();
-        $sql ="INSERT INTO Students (`name`, email, assigned_teacher, `group`) VALUES (:name, :email, :teacher, :group)";
-        $result = $pdo->prepare($sql);
-        $result->bindValue(':name', $name);
-        $result->bindValue(':email', $email);
-        $result->bindValue(':teacher', $teacher);
-        $result->bindValue(':group', $class);
-        $result->execute();
+            $pdo = $this->openConnection();
+            $sql ="INSERT INTO Students (`name`, email, assigned_teacher, `group`) VALUES (:name, :email, :teacher, :group)";
+            $result = $pdo->prepare($sql);
+            $result->bindValue(':name', $name);
+            $result->bindValue(':email', $email);
+            $result->bindValue(':teacher', $teacher);
+            $result->bindValue(':group', $class);
+            $result->execute();
+
 
     }
 
@@ -62,16 +72,6 @@ class Connection
         $student = $result->fetch();
 
         return $student;
-
-    }
-
-    public function deleteStudent()
-    {
-        $pdo = $this->openConnection();
-        $sql = "DELETE FROM Students WHERE id = :id";
-        $result = $pdo->prepare($sql);
-        $result->bindParam(':id', $id);
-        $result->execute();
 
     }
 
@@ -122,6 +122,24 @@ class Connection
     }
     public function getOverview(){
         return $this->overview;
+
+        return $result->fetch();
+
+
+    }
+
+    //Doesnt work.
+    public function deleteStudent($id)
+    {
+        $pdo = $this->openConnection();
+        $sql = "DELETE FROM Students WHERE id = ?";
+        $result = $pdo->prepare($sql);
+        //no placeholder so no binding needed
+       // $result->bindParam(':id', $id, PDO::PARAM_INT);
+        //execute required an array so we added the array thingamajig
+        $result->execute(array($id));
+
+
     }
 
 }
