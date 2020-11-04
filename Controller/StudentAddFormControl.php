@@ -5,7 +5,7 @@ class StudentAddFormControl
 {
     public function render ()
     {
-        $path = 'studentAddForm.php';
+        $path = '../View/studentAddForm.php';
         $this->addStudentControl();
         require $path;
     }

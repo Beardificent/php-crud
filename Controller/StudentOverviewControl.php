@@ -9,7 +9,7 @@ class StudentOverviewControl
         $connection = new Connection();
         //get function from connection.php.
         $students = $connection->getStudentOverview();
-        $path = 'studentOverview.php';
+        $path = '../View/studentOverview.php';
         require $path;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if($_POST['delete_student']){
