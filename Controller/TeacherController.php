@@ -1,10 +1,10 @@
 <?php
 
-Class StudentController{
+Class TeacherController{
 
     public function __construct()
     {
-        if($_POST["studentSubmit"] == "Delete")
+        if($_POST["teacherSubmit"] == "Delete")
         {
             //do a delete query
         }
@@ -16,16 +16,16 @@ Class StudentController{
         {
             //do an add query
         }
-        elseif($_POST["studentSubmit"] == "Overview"))
+        elseif($_POST["teacherSubmit"] == "Overview"))
         {
             //do an overview query
             // include overview page
         }
-        elseif($_POST["studentSubmit"] == "Edit"))
+        elseif($_POST["teacherSubmit"] == "Edit"))
         {
             // include edit page
         }
-        elseif($_POST["studentSubmit"] == "Add"))
+        elseif($_POST["teacherSubmit"] == "Add"))
         {
             // include add page
         }
