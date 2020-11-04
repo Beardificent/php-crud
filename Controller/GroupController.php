@@ -6,7 +6,7 @@ Class GroupController{
     {
         $connection = new Connection();
 
-        if($_POST["groupSubmit"] == "Delete")
+        if($_POST["GroupSubmit"] == "Delete")
         {
             $connection->deleteGroup($_POST["id"]);
         }
@@ -18,16 +18,16 @@ Class GroupController{
         {
             $connection->addGroup($_POST["name"], $_POST["location"]);
         }
-        elseif($_POST["groupSubmit"] == "Overview")
+        elseif($_POST["GroupSubmit"] == "Overview")
         {
             $array = $connection->getGroupOverview()->getSelectedObjectArray();
             include 'View/groupOverview.php';
         }
-        elseif($_POST["groupSubmit"] == "Edit")
+        elseif($_POST["GroupSubmit"] == "Edit")
         {
             // include edit page NOT MADE YET
         }
-        elseif($_POST["groupSubmit"] == "Add")
+        elseif($_POST["GroupSubmit"] == "Add")
         {
             include 'View/groupView.php';
         }

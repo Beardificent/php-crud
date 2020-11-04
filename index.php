@@ -5,6 +5,10 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
+include 'Controller/StudentController.php';
+include 'Controller/TeacherController.php';
+include 'Controller/GroupController.php';
+include 'Model/model.php';
 
 if(isset($_POST["StudentSubmit"]))
 {

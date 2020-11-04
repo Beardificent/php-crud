@@ -3,7 +3,7 @@
 spl_autoload_register('thisAutoloader');
 
 function thisAutoloader($Class){
-    $location = "ClassLibrary/";
+    $location = "Model/";
     $extension = ".php";
     $path = $location . $Class . $extension;
 

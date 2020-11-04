@@ -6,7 +6,7 @@ Class TeacherController{
     {
         $connection = new Connection();
 
-        if($_POST["teacherSubmit"] == "Delete")
+        if($_POST["TeacherSubmit"] == "Delete")
         {
             $connection->deleteTeacher($_POST["id"]);
         }
@@ -19,16 +19,16 @@ Class TeacherController{
             $connection->addTeacher($_POST["name"], $_POST["group"]);
 
         }
-        elseif($_POST["teacherSubmit"] == "Overview")
+        elseif($_POST["TeacherSubmit"] == "Overview")
         {
             $array = $connection->getTeacherOverview()->getSelectedObjectArray();
             require "View/TeacherView.php";
         }
-        elseif($_POST["teacherSubmit"] == "Edit")
+        elseif($_POST["TeacherSubmit"] == "Edit")
         {
             // include edit page
         }
-        elseif($_POST["teacherSubmit"] == "Add")
+        elseif($_POST["TeacherSubmit"] == "Add")
         {
             // include add page
         }
