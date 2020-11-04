@@ -2,8 +2,8 @@
 
 Class SuperLoader
 {
-    protected array $objectArr;
-    protected array $dataArr;
+    protected array $objectArr = [];
+    protected array $dataArr = [];
     protected Student $student;
     protected Teacher $teacher;
     protected Group $group;
