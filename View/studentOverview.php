@@ -13,11 +13,11 @@ echo '<form action="?page=studentAddForm" method="post"><button name="add_studen
             </div>
             </div><br/>';
 
-    //echo '<form action="" method="post"></form><input type="submit" name="edit_student" value="edit student"></form>';
+    echo '<form action="?page=editStudentForm" method="post"></form><button type="submit" name="edit_student" value="' . $student->getId() . '">EDIT</button></form>';
 
     //By changing the value to $studentID, the button now says the id ofcourse. Do I need a hidden input? Nope, it works the numbers stay for now.
      //FIX: Changing input to button will make it so that the value is not displaying on the button itself.
-     echo '<form action="?page=studentOverview" method="post"><button name="delete_student" value="' . $student->getId() . '">DELETE</button></form>';
+     echo '<form action="?page=studentOverview" method="post"><button type="submit" name="delete_student" value="' . $student->getId() . '">DELETE</button></form>';
 
 
 
