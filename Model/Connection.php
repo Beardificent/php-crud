@@ -34,112 +34,116 @@ class Connection
         return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
     }
 
-
-//Function to ADD STUDENTS
-    public function addStudent($name, $email, $class, $teacher)
+    public function addStudent($name, $email, $class)
     {
-        //if thingamhjies become blue add backticks.
             $pdo = $this->openConnection();
-            $sql ="INSERT INTO Students (`name`, email, assigned_teacher, `group`) VALUES (:name, :email, :teacher, :group)";
+            $sql ="INSERT INTO student (name, email, class) VALUES (:name, :email, class)";
             $result = $pdo->prepare($sql);
             $result->bindValue(':name', $name);
             $result->bindValue(':email', $email);
-            $result->bindValue(':teacher', $teacher);
             $result->bindValue(':group', $class);
             $result->execute();
 
 
     }
 
-    //FUNCTION TO GET ALL STUDENTS FROM DB
+    public function addTeacher($name ,$class)
+    {
+        $pdo = $this->openConnection();
+        $sql ="INSERT INTO teacher (name, class) VALUES (:name, :class)";
+        $result = $pdo->prepare($sql);
+        $result->bindValue(':name', $name);
+        $result->bindValue(':group', $class);
+        $result->execute();
+
+
+    }
+
+    public function addGroup($name, $location)
+    {
+
+        $pdo = $this->openConnection();
+        $sql ="INSERT INTO group (name, location) VALUES (:name, :location)";
+        $result = $pdo->prepare($sql);
+        $result->bindValue(':name', $name);
+        $result->bindValue(':location', $location);
+        $result->execute();
+
+    }
+
     public function getStudentOverview()
     {
         $pdo = $this->openConnection();
-        $sql = "SELECT * FROM Students";
+        $sql = "SELECT * FROM student";
         $result = $pdo->query($sql);
         return $result->fetchAll();
 
     }
+    public function getTeacherOverview()
+    {
+        $pdo = $this->openConnection();
+        $sql = "SELECT * FROM teacher";
+        $result = $pdo->query($sql);
+        return $result->fetchAll();
 
-    //Function to GET to the PROFILE
+    }
+    public function getGroupOverview()
+    {
+        $pdo = $this->openConnection();
+        $sql = "SELECT * FROM `group`";
+        $result = $pdo->query($sql);
+        return $result->fetchAll();
+
+    }
+    public function deleteStudent($id)
+    {
+        $pdo = $this->openConnection();
+        $sql = "DELETE FROM student WHERE id = :id";
+        $result = $pdo->prepare($sql);
+        $result->bindValue(':id', $id);
+        $result->execute();
+    }
+    public function deleteTeacher($id)
+    {
+        $pdo = $this->openConnection();
+        $sql = "DELETE FROM teacher WHERE id = :id";
+        $result = $pdo->prepare($sql);
+        $result->bindValue(':id', $id);
+        $result->execute();
+    }
+    public function deleteGroup($id)
+    {
+        $pdo = $this->openConnection();
+        $sql = "DELETE FROM group WHERE id = :id";
+        $result = $pdo->prepare($sql);
+        $result->bindValue(':id', $id);
+        $result->execute();
+    }
+
+
     public function getStudentProfile($id)
     {
         $pdo = $this->openConnection();
-        $sql = "SELECT * FROM Students WHERE id = :id";
+        $sql = "SELECT * FROM student WHERE id = :id";
         $result = $pdo->prepare($sql);
         $result->bindValue(':id', $id);
         $result->execute();
         $student = $result->fetch();
-
         return $student;
 
     }
-
-    public function addGroup($name, $location, $teacher)
-    {
-
-        $pdo = $this->openConnection();
-        $sql ="INSERT INTO Class (name, Location) VALUES (:name, :location)";
-        $result = $pdo->prepare($sql);
-        $result->bindValue(':name', $name);
-        $result->bindValue(':location', $location);
-        $result->bindValue(':teacher', $teacher);
-        $result->execute();
-
-    }
-    public function getGroup($id){
-        $pdo = $this->openConnection();
-        $sql ="SELECT * FROM Class  WHERE id = :id";
-        $result = $pdo->prepare($sql);
-        $result->bindValue(':name', $id);
-        $result->execute();
-        return $result->fetch();
-    }
-
     public function getStudentsInGroup($id){
         $pdo = $this->openConnection();
-        $sql ="SELECT * FROM Students  WHERE id = :id";//class_id is a placeholder for now
+        $sql ="SELECT * FROM student  WHERE id = :id";//class_id is a placeholder for now
         $result = $pdo->prepare($sql);
         $result->bindValue(':id', $id);
         $result->execute();
         $result->fetchAll();
-
-
-    }
-    public function getGroups(){
-
-        $pdo = $this->openConnection();
-        $sql ="SELECT * FROM Class";
-        $result = $pdo->prepare($sql);
-        $result->execute();
-        $toOverview = $result->fetchAll();
-        $this->overview = new Overview();
-        $array = [];
-        foreach ($toOverview as $group){
-            $newGroup = new Group($group['id'], $group['name'], $group['Location']);
-            array_push($array, $newGroup->getGroupObj());
-        } $this->overview->setSummary($array);
-    }
-    public function getOverview(){
-        return $this->overview;
-
-        return $result->fetch();
-
-
     }
 
-    //Doesnt work.
-    public function deleteStudent($id)
-    {
-        $pdo = $this->openConnection();
-        $sql = "DELETE FROM Students WHERE id = ?";
-        $result = $pdo->prepare($sql);
-        //no placeholder so no binding needed
-       // $result->bindParam(':id', $id, PDO::PARAM_INT);
-        //execute required an array so we added the array thingamajig
-        $result->execute(array($id));
 
 
-    }
+
+
 
 }
