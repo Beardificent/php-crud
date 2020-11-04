@@ -1,4 +1,7 @@
 <?php
+//Button to redirect to studentaddform when pressed.
+echo '<form action="?page=studentAddForm" method="post"><button name="add_student"">CREATE NEW</button></form>';
+
  foreach($students as $student){
     echo '<div class="card">
             <div class="card-header">
@@ -9,16 +12,18 @@
            <p class="card-text">' . $student['email'] . '</p>
             </div>
             </div><br/>';
-    echo '<form action="" method="post"></form><input type="submit" name="edit_student" value="edit student"></form>';
+
+    //echo '<form action="" method="post"></form><input type="submit" name="edit_student" value="edit student"></form>';
 
     //By changing the value to $studentID, the button now says the id ofcourse. Do I need a hidden input? Nope, it works the numbers stay for now.
-     echo '<form action="?page=studentOverview" method="post"><input type="submit" name="delete_student" value="' . $student['id'] . '">DELETE</form>';
+     //FIX: Changing input to button will make it so that the value is not displaying on the button itself.
+     echo '<form action="?page=studentOverview" method="post"><button name="delete_student" value="' . $student['id'] . '">DELETE</button></form>';
 
-    //tried creating a link as delete function, also adding a 'send = del' to be able to look in url if send === to del a
-     //and only if send = del, will it delete. but it's not working as I thought it would. But think the href is the problem.
-    //echo '<a href="StudentOverviewControl.php?id=' . $student['id'] . '?' . '&send=del">Delete</a>';
+
 
 
 
 }
+
+
 
