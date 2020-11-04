@@ -20,8 +20,6 @@ class Connection
         $dbhost = "localhost";
         $dbuser = "becode";
         $dbpass = "becode123";
-
-
         $db = "php_crud";
 
 
@@ -140,10 +138,5 @@ class Connection
         $result->execute();
         $result->fetchAll();
     }
-
-
-
-
-
 
 }
