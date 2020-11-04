@@ -61,7 +61,7 @@ class Connection
     {
 
         $pdo = $this->openConnection();
-        $sql ="INSERT INTO group (name, location) VALUES (:name, :location)";
+        $sql ="INSERT INTO 'group' (name, location) VALUES (:name, :location)";
         $result = $pdo->prepare($sql);
         $result->bindValue(':name', $name);
         $result->bindValue(':location', $location);
@@ -74,7 +74,9 @@ class Connection
         $pdo = $this->openConnection();
         $sql = "SELECT * FROM student";
         $result = $pdo->query($sql);
-        return $result->fetchAll();
+        $overview = new StudentLoader($result->fetchAll());
+        $overview->construct();
+        return $overview;
 
     }
     public function getTeacherOverview()
@@ -82,15 +84,18 @@ class Connection
         $pdo = $this->openConnection();
         $sql = "SELECT * FROM teacher";
         $result = $pdo->query($sql);
-        return $result->fetchAll();
-
+        $overview = new TeacherLoader($result->fetchAll());
+        $overview->construct();
+        return $overview;
     }
     public function getGroupOverview()
     {
         $pdo = $this->openConnection();
         $sql = "SELECT * FROM `group`";
         $result = $pdo->query($sql);
-        return $result->fetchAll();
+        $overview = new GroupLoader($result->fetchAll());
+        $overview->construct();
+        return $overview;
 
     }
     public function deleteStudent($id)
@@ -112,7 +117,7 @@ class Connection
     public function deleteGroup($id)
     {
         $pdo = $this->openConnection();
-        $sql = "DELETE FROM group WHERE id = :id";
+        $sql = "DELETE FROM 'group' WHERE id = :id";
         $result = $pdo->prepare($sql);
         $result->bindValue(':id', $id);
         $result->execute();
