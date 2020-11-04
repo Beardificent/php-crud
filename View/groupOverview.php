@@ -1,7 +1,9 @@
 <table>
 
-    <?php foreach ($connection->getOverview()->getSummary() AS $student){
-        echo "<tr><th>".$student->getFirstName()."</th><th>".$student->getLastName()."</th><th>".$student->getEmail()."</th><th><form method='get'><button type='submit' value='".$student->getId()."' name='user'>Profile</form></th>";
+    <?php foreach ($connection->getStudentOverview()->getSelectedObjectArray() AS $group){
+        echo "<tr><th>".$group->getName()."</th><th>".$group->getLocation()."</th><th><form method='get'>";
+        echo '<form action="?page=studentOverview" method="post"><button type="submit" name="Delete" value="' . $group->getId() . '">DELETE</button></form>';
+
     } ?>
 
 </table>
