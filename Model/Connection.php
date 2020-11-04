@@ -141,5 +141,13 @@ class Connection
         $result->execute();
         $result->fetchAll();
     }
+    public function updateStudent ($name, $email, $id)
+    {
+        $result = $this->openConnection()->prepare('UPDATE students SET name =name, email = :email WHERE id = :id');
+        $result->bindParam(':id', $id);
+        $result->bindParam(':fname', $name);
+        $result->bindParam(':email', $email);
+        $result->execute();
+    }
 
 }
