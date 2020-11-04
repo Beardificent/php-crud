@@ -17,6 +17,8 @@ elseif (isset($_POST["TeacherSubmit"]))
 elseif (isset($_POST["GroupSubmit"]))
 {
     $app = new GroupController();
+} else {
+    include 'View/landingPage.php';
 }
 
 
