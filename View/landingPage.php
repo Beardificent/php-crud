@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <form method="post"><button name="StudentSubmit">Student</button></form>
-    <form method="post"><button name="TeacherSubmit">Teacher</button></form>
-    <form method="post"><button name="GroupSubmit">Group</button></form>
+    <form method="post"><button value="Overview" name="StudentSubmit">Student</button></form>
+    <form method="post"><button value="Overview" name="TeacherSubmit">Teacher</button></form>
+    <form method="post"><button value="Overview" name="GroupSubmit">Group</button></form>
 </body>
 </html>
