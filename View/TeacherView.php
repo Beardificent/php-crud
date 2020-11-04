@@ -19,11 +19,13 @@
 <?php
 
 
-foreach($Teacher as $Teacher): ?>
+foreach($Teachers as $Teacher): ?>
 <tr class="table-row">
     <td><?php echo $Teacher['name'] . "<br>"?></td>
     <td><?php echo $Teacher['email'] . "<br>" ?></td>
     <td><a href="/?user= <?php echo $Teacher['id'] ;?> ">link text</a></td>
+    <button type="button">Edit</button>
+    <button type="button">Delete</button>
 
     <?php endforeach;
 
