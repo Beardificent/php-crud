@@ -5,8 +5,6 @@ class Connection
     private PDO $pdo;
 
     private PDOStatement $handle;
-    private Overview $overview;
-
     private PDOStatement $result;
 
 
