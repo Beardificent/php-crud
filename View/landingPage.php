@@ -9,8 +9,8 @@
 </head>
 <body>
 
-<button name="studentSubmit"></button>
-<button name="teacherSubmit"></button>
-<button name="groupSubmit"></button>
+<button name="studentSubmit">Student</button>
+<button name="teacherSubmit">Teacher</button>
+<button name="groupSubmit">Group</button>
 </body>
 </html>
