@@ -16,18 +16,18 @@ Class GroupController{
         {
             //do an add query
         }
-        elseif($_POST["groupSubmit"] == "Overview"))
+        elseif($_POST["groupSubmit"] == "Overview")
         {
             //do an overview query
-            // include overview page
+            include 'View/groupOverview.php';
         }
-        elseif($_POST["groupSubmit"] == "Edit"))
+        elseif($_POST["groupSubmit"] == "Edit")
         {
             // include edit page
         }
-        elseif($_POST["groupSubmit"] == "Add"))
+        elseif($_POST["groupSubmit"] == "Add")
         {
-            // include add page
+            include 'View/groupView.php';
         }
 
 

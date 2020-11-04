@@ -10,14 +10,6 @@ class Teacher extends DataBaseConnection
     private string $list_of_students;
     private int $class_number;
 
-
-    /**
-     * Teacher constructor.
-     * @param $name
-     * @param $email
-     * @param $list_of_students
-     * @param $class_number
-     */
     public function __construct($id, $name, $email, $list_of_students, $class_number)
     {
 
