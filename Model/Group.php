@@ -13,8 +13,23 @@ Class Group
         $this->location = $location;
     }
 
-    public function getGroupObj(){
+    public function getObject(){
         return $this;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getLocation(): string
+    {
+        return $this->location;
     }
 
 

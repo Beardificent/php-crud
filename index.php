@@ -26,18 +26,18 @@ elseif (isset($_POST["GroupSubmit"]))
 
 
 
-if (isset($_GET['page']) && $_GET['page'] == "insert") {
-    $TeacherOverView = new TeacherOverView();
-    $TeacherOverView->displayTeachers();
+//if (isset($_GET['page']) && $_GET['page'] == "insert") {
+   // $TeacherOverView = new TeacherOverView();
+    //$TeacherOverView->displayTeachers();
 
-} elseif (isset($_GET['user'])) {
-    $Teacher = new TeacherLoader();
-    $Teacher->getTeacher();
+//} elseif (isset($_GET['user'])) {
+    //$Teacher = new TeacherLoader();
+    //$Teacher->getTeacher();
 
-} else {
-    $Controller = new Controller();
-    $Controller->Render();
-}
+//} else {
+    //$Controller = new Controller();
+    //$Controller->Render();
+//}
 
 
 

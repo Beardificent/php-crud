@@ -1,24 +1,29 @@
 <?php
- foreach($students as $student){
+//Button to redirect to studentaddform when pressed.
+echo '<form action="?page=studentAddForm" method="post"><button name="add_student"">CREATE NEW</button></form>';
+
+ foreach($array AS $student){
     echo '<div class="card">
             <div class="card-header">
-                '. $student['name'] . '
+                '. $student->getName() . '
     </div>
             <div class="card-body">
-                <h4 class="card-title"><a href="/?user=' . $student['id'] . '">Profile</a></h4>
-           <p class="card-text">' . $student['email'] . '</p>
+                <h4 class="card-title"><a href="/?user=' . $student->getId() . '">Profile</a></h4>
+           <p class="card-text">' . $student->getEmail() . '</p>
             </div>
             </div><br/>';
-    echo '<form action="" method="post"></form><input type="submit" name="edit_student" value="edit student"></form>';
+
+    echo '<form action="?page=editStudentForm" method="post"></form><button type="submit" name="edit_student" value="' . $student->getId() . '">EDIT</button></form>';
 
     //By changing the value to $studentID, the button now says the id ofcourse. Do I need a hidden input? Nope, it works the numbers stay for now.
-     echo '<form action="?page=studentOverview" method="post"><input type="submit" name="delete_student" value="' . $student['id'] . '">DELETE</form>';
+     //FIX: Changing input to button will make it so that the value is not displaying on the button itself.
+     echo '<form action="?page=studentOverview" method="post"><button type="submit" name="delete_student" value="' . $student->getId() . '">DELETE</button></form>';
 
-    //tried creating a link as delete function, also adding a 'send = del' to be able to look in url if send === to del a
-     //and only if send = del, will it delete. but it's not working as I thought it would. But think the href is the problem.
-    //echo '<a href="StudentOverviewControl.php?id=' . $student['id'] . '?' . '&send=del">Delete</a>';
+
 
 
 
 }
+
+
 

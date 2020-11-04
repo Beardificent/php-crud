@@ -4,9 +4,11 @@ Class GroupController{
 
     public function __construct()
     {
+        $connection = new Connection();
+
         if($_POST["groupSubmit"] == "Delete")
         {
-            //do a delete query
+            $connection->deleteGroup($_POST["id"]);
         }
         elseif(isset($_POST["id"]))
         {
@@ -14,20 +16,20 @@ Class GroupController{
         }
         elseif(isset($_POST["name"]))
         {
-            //do an add query
+            $connection->addGroup($_POST["name"], $_POST["location"]);
         }
-        elseif($_POST["groupSubmit"] == "Overview"))
+        elseif($_POST["groupSubmit"] == "Overview")
         {
-            //do an overview query
-            // include overview page
+            $array = $connection->getGroupOverview()->getSelectedObjectArray();
+            include 'View/groupOverview.php';
         }
-        elseif($_POST["groupSubmit"] == "Edit"))
+        elseif($_POST["groupSubmit"] == "Edit")
         {
-            // include edit page
+            // include edit page NOT MADE YET
         }
-        elseif($_POST["groupSubmit"] == "Add"))
+        elseif($_POST["groupSubmit"] == "Add")
         {
-            // include add page
+            include 'View/groupView.php';
         }
 
 
