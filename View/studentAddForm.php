@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Add a student</title>
 </head>
 <body>
 
@@ -19,17 +19,15 @@
         <input type="text" name="email" placeholder=" your email">
     </p>
 
-    <select name="group">
-        <option value="" disabled selected>Choose option</option>
-        <option value="Giertz">Giertz</option>
-        <option value="Lamarr">Lamarr</option>
-    </select>
+    <p>
+        <label for="group">class:</label><br/>
+        <input type="text" name="group" placeholder="the class you are in">
+    </p>
 
-    <select name="coach">
-        <option value="" disabled selected>Choose option</option>
-        <option value="Sicco">Sicco</option>
-        <option value="Koen">Koen</option>
-    </select><br><br>
+    <p>
+        <label for="coach">coach:</label><br/>
+        <input type="text" name="coach" placeholder="who's giving the class?">
+    </p>
    <!--
    <p>
         <label for="group">group:</label><br/>
