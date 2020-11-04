@@ -1,6 +1,6 @@
 <?php
 //Button to redirect to studentaddform when pressed.
-echo '<form action="?page=studentAddForm" method="post"><button name="add_student"">CREATE NEW</button></form>';
+echo '<form action="" method="post"><button name="add_student"">CREATE NEW</button></form>';
 
  foreach($array AS $student){
     echo '<div class="card">
