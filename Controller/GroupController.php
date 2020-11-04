@@ -25,7 +25,7 @@ Class GroupController{
         }
         elseif($_POST["groupSubmit"] == "Edit")
         {
-            // include edit page
+            // include edit page NOT MADE YET
         }
         elseif($_POST["groupSubmit"] == "Add")
         {
