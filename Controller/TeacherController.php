@@ -4,11 +4,11 @@ Class TeacherController{
 
     public function __construct()
     {
-        $connection = new DataBaseConnection();
+        $connection = new Connection();
 
         if($_POST["teacherSubmit"] == "Delete")
         {
-            //do a delete query
+            $connection->deleteTeacher($_POST["id"]);
         }
         elseif(isset($_POST["id"]))
         {
@@ -16,18 +16,12 @@ Class TeacherController{
         }
         elseif(isset($_POST["name"]))
         {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
+            $connection->addTeacher($_POST["name"], $_POST["group"]);
 
-
-            $connection->createTeacher($name, $email);
         }
         elseif($_POST["teacherSubmit"] == "Overview")
         {
-            $getTeacher = new TeacherLoader();
-            $getTeacher = $getTeacher->getTeacher();
-
-
+            $array = $connection->getTeacherOverview()->getSelectedObjectArray();
             require "View/TeacherView.php";
         }
         elseif($_POST["teacherSubmit"] == "Edit")

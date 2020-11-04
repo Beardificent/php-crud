@@ -8,9 +8,7 @@ Class StudentController{
 
         if($_POST["studentSubmit"] == "Delete")
         {
-            $id = $_POST['studentSubmit'];
-
-            $connection->deleteStudent($id);
+            $connection->deleteStudent($_POST["id"]);
         }
         elseif(isset($_POST["id"]))
         {
@@ -18,11 +16,12 @@ Class StudentController{
         }
         elseif(isset($_POST["name"]))
         {
-            $connection->addStudent($_POST['name'], $_POST['email'], $_POST['group'], $_POST['coach']);
+            $connection->addStudent($_POST["name"], $_POST["email"], $_POST["group"]);
         }
+
         elseif($_POST["studentSubmit"] == "Overview")
         {
-            $students = $connection->getStudentOverview();
+            $array = $connection->getStudentOverview()->getSelectedObjectArray();
             include 'View/studentOverview.php';
         }
         elseif($_POST["studentSubmit"] == "Edit")
