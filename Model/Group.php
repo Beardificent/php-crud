@@ -13,7 +13,7 @@ Class Group
         $this->location = $location;
     }
 
-    public function getGroupObj(){
+    public function getObject(){
         return $this;
     }
 
