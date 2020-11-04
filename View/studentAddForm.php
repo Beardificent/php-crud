@@ -28,16 +28,7 @@
         <label for="coach">coach:</label><br/>
         <input type="text" name="coach" placeholder="who's giving the class?">
     </p>
-   <!--
-   <p>
-        <label for="group">group:</label><br/>
-        <input type="text" name="group" placeholder="Which group do you belong too?">
-    </p>
-    <p>
-        <label for="coach">coach:</label><br/>
-        <input type="text" name="coach" placeholder="who is your coach?">
-    </p>
-    -->
+
     <input type="submit" name="submit" value="submit">
 </form>
 
