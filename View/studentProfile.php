@@ -1,8 +1,8 @@
 <?php
 
-echo $student['name'] . '<br>';
-echo $student['email'] . '<br>';
-echo $student['assigned_teacher'] . '<br>';
-echo $student['group'] . '<br>';
+echo $student->getName() . '<br>';
+echo $student->getEmail() . '<br>';
+//echo $student['assigned_teacher'] . '<br>';
+echo $student->getClass() . '<br>';
 
 
